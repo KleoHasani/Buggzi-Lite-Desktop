@@ -1,0 +1,29 @@
+productName: "Buggzi"
+appId: "com.buggzi.app"
+asar: false
+extends: null
+win:
+    icon: "icons/icon.ico"
+    target:
+        - nsis
+nsis:
+    oneClick: false
+    perMachine: false
+    allowToChangeInstallationDirectory: true
+    license: "LICENSE"
+    deleteAppDataOnUninstall: true
+    runAfterFinish: false
+    createDesktopShortcut: false
+    createStartMenuShortcut: true
+    shortcutName: "Buggzi"
+
+linux:
+    target: [AppImage]
+    executableName: "Buggzi"
+    icon: "icons/icon.icns"
+    maintainer: Kleo Hasani
+    category: "Utility"
+deb:
+    depends: ["gconf2", "gconf-service", "libnotify4", "libappindicator1", "libxtst6", "libnss3"]
+
+files: ["!node_modules", "build", "icons", "package.json"]
