@@ -13,7 +13,7 @@
 	"scripts": {
 		"start:react": "react-scripts start",
 		"build:react": "react-scripts build",
-		"start:electron": "electron public/main.js developement",
+		"start:electron": "electron --trace-warnings public/main.js developement",
 		"build:electron": "electron-builder -c electron-builder.yml",
 		"test:e2e": "mocha e2e",
 		"test:integration": "react-scripts test",

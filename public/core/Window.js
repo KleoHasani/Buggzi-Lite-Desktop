@@ -31,7 +31,7 @@ class Window extends BrowserWindow {
 			},
 		});
 
-		const isDev = process.argv[2] === "developement";
+		const isDev = process.argv.includes("developement");
 
 		this.loadURL(isDev ? "http://localhost:3000" : `file://${view}`);
 
