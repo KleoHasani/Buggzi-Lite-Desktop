@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
@@ -20,6 +20,17 @@ function App() {
 	);
 
 	const [projects, setProjects] = useState([]);
+
+	// load data from main process
+	useEffect(() => {
+		const _load = () => {
+			window.electron.ipcSend("render:ready");
+			window.electron.ipcOnce("data:load", (e, data) => {
+				setProjects(data.projects);
+			});
+		};
+		_load();
+	}, []);
 
 	return (
 		<ThemeProvider theme={theme}>

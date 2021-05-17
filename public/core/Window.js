@@ -2,7 +2,7 @@
 
 const { BrowserWindow } = require("electron");
 
-const { view, icon } = require("./load");
+const { view, preload, icon } = require("./load");
 
 class Window extends BrowserWindow {
 	constructor() {
@@ -17,7 +17,7 @@ class Window extends BrowserWindow {
 			show: false,
 			icon: icon(),
 			webPreferences: {
-				preload: "preload.js",
+				preload: preload,
 				webSecurity: true,
 				contextIsolation: true,
 				worldSafeExecuteJavaScript: true,
@@ -31,9 +31,7 @@ class Window extends BrowserWindow {
 			},
 		});
 
-		const isDev = process.argv.includes("developement");
-
-		this.loadURL(isDev ? "http://localhost:3000" : `file://${view}`);
+		this.loadURL(view);
 
 		this.once("ready-to-show", () => {
 			this.show();
