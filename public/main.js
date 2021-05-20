@@ -7,7 +7,7 @@ const { existsSync } = require("fs");
 const { Window } = require("./core/Window");
 const { Storage } = require("./core/Storage");
 
-const { newProject, loadProject, errorProject, error } = require("./core/helper");
+const { newProject, loadProject, error } = require("./core/helper");
 
 if (app.requestSingleInstanceLock())
 	(() => {
