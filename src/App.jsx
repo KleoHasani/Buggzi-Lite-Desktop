@@ -32,12 +32,26 @@ function App() {
 		_load();
 	}, []);
 
+	const newProject = () => {
+		window.electron.ipcSend("project:new");
+		window.electron.ipcOnce("project:created", (e, data) => {
+			setProjects(data.projects);
+		});
+	};
+
+	const loadProject = () => {
+		window.electron.ipcSend("project:load");
+		window.electron.ipcOnce("project:loaded", (e, data) => {
+			setProjects(data.projects);
+		});
+	};
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Router>
 				<Route path="/" exact>
-					<Main projects={projects} />
+					<Main projects={projects} newProject={newProject} loadProject={loadProject} />
 				</Route>
 			</Router>
 		</ThemeProvider>

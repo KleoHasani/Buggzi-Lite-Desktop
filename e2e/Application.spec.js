@@ -21,9 +21,6 @@ describe("Application launch", function () {
 	it("Should show an initial window.", async () => {
 		const count = await this.app.client.getWindowCount();
 		assert.strictEqual(count, 1);
-	});
-
-	it('Should have title "Buggzi".', async () => {
 		const title = await this.app.client.getTitle();
 		assert.strictEqual(title, "Buggzi");
 	});

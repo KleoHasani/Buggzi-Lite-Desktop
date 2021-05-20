@@ -9,10 +9,10 @@ function Main(props) {
 				<Typography variant="h5">Projects</Typography>
 				<ProjectList projects={props.projects}></ProjectList>
 				<Grid container direction="row" justify="space-evenly" alignItems="center">
-					<Button variant="contained" color="primary" startIcon={<AddCircle />}>
+					<Button variant="contained" color="primary" startIcon={<AddCircle />} onClick={props.newProject}>
 						New
 					</Button>
-					<Button variant="contained" color="primary" startIcon={<Folder />}>
+					<Button variant="contained" color="primary" startIcon={<Folder />} onClick={props.loadProject}>
 						Load
 					</Button>
 				</Grid>
