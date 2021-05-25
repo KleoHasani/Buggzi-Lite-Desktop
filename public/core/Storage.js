@@ -20,7 +20,7 @@ class Storage {
 	 * Load JSON into in-memory store
 	 * @returns {Promise<void>}
 	 */
-	load() {
+	async load() {
 		return new Promise((accept, reject) => {
 			access(this._path)
 				.catch(() => {
@@ -46,6 +46,27 @@ class Storage {
 	}
 
 	/**
+	 * Load JSON data from reading file into in-memory store
+	 * @returns {Promise<void>}
+	 */
+	async loadR() {
+		return new Promise((accept, reject) => {
+			readFile(this._path, {
+				encoding: "utf-8",
+				flag: "r",
+			})
+				.then((data) => {
+					this._storage = JSON.parse(data);
+					accept();
+				})
+				.catch((err) => {
+					console.error(err);
+					reject("err");
+				});
+		});
+	}
+
+	/**
 	 * Get length of store
 	 * @returns {number}
 	 */
@@ -53,8 +74,12 @@ class Storage {
 		return this._storage.length;
 	}
 
+	/**
+	 * Get array of items
+	 * @returns {[object]}
+	 */
 	get items() {
-		return this._storage.values();
+		return Array.from(this._storage.values());
 	}
 
 	/**
@@ -106,7 +131,7 @@ class Storage {
 	 * Save in-memory store to JSON file
 	 * @returns {Promise<void> | void}
 	 */
-	save() {
+	async save() {
 		if (!this._isSaved) {
 			this._storage = this._storage.filter((items) => items.value.body !== "");
 			return new Promise((accept, reject) => {

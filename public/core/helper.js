@@ -1,6 +1,5 @@
 "use strict";
 
-const { KeyboardReturnOutlined } = require("@material-ui/icons");
 const { dialog, BrowserWindow } = require("electron");
 const { writeFile } = require("fs/promises");
 
@@ -25,6 +24,9 @@ function newProject(context) {
 				const path = file.filePath;
 				const fname = path.split(filePathRegEx);
 				const name = fname[fname.length - 1];
+				const ext = name.split(".")[1];
+
+				if (ext !== "json") throw 'File extention is not "json"';
 
 				writeFile(path, "[]", { encoding: "utf-8", flag: "w", mode: 0o666 })
 					.then(() => {
@@ -38,13 +40,11 @@ function newProject(context) {
 						});
 					})
 					.catch((err) => {
-						console.error(err);
-						reject("Unable to create project.");
+						reject(`Unable to create project. ${err}`);
 					});
 			})
 			.catch((err) => {
-				console.error(err);
-				reject("Unable to create project.");
+				reject(`Unable to create project. ${err}`);
 			});
 	});
 }
@@ -79,8 +79,7 @@ function loadProject(context) {
 				});
 			})
 			.catch((err) => {
-				console.error(err);
-				reject("Unable to load project.");
+				reject(`Unable to create project. ${err}`);
 			});
 	});
 }

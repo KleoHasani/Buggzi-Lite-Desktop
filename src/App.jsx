@@ -5,6 +5,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
 import { Main } from "./views/Main/Main";
+import { Dashboard } from "./views/Dashboard/Dashboard";
 
 function App() {
 	const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -46,12 +47,27 @@ function App() {
 		});
 	};
 
+	const removeProject = (key) => {
+		window.electron.ipcSend("project:remove", { key });
+		window.electron.ipcOnce("project:removed", (e, data) => {
+			setProjects(data.projects);
+		});
+	};
+
 	return (
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<Router>
 				<Route path="/" exact>
-					<Main projects={projects} newProject={newProject} loadProject={loadProject} />
+					<Main
+						projects={projects}
+						newProject={newProject}
+						loadProject={loadProject}
+						removeProject={removeProject}
+					/>
+				</Route>
+				<Route path="/dashboard/:projectKey">
+					<Dashboard />
 				</Route>
 			</Router>
 		</ThemeProvider>

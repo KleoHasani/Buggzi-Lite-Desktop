@@ -35,6 +35,24 @@ body {
 	width: 100%;
 }
 
+.dashboard-body {
+	width: 100%;
+	padding: 1em;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 3em;
+	height: 100%;
+	max-height: calc(100vh - 6em);
+}
+
 #project-list {
 	height: 50vh;
+}
+
+#ticket-list {
+	height: 100%;
+	max-height: calc(100vh - 10em);
+	overflow-y: auto;
+	border-radius: 1em;
+	margin-top: 1em;
 }

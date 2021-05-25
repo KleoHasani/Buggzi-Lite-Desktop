@@ -5,7 +5,7 @@ function ProjectList(props) {
 	return (
 		<List id="project-list">
 			{props.projects.map((project, index) => (
-				<ProjectListItem key={index} project={project}></ProjectListItem>
+				<ProjectListItem key={index} project={project} removeProject={props.removeProject}></ProjectListItem>
 			))}
 		</List>
 	);

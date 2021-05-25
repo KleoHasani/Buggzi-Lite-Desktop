@@ -7,7 +7,7 @@ function Main(props) {
 		<Grid container direction="column" justify="center" alignItems="center" className="fullscreen">
 			<Container maxWidth="sm">
 				<Typography variant="h5">Projects</Typography>
-				<ProjectList projects={props.projects}></ProjectList>
+				<ProjectList projects={props.projects} removeProject={props.removeProject}></ProjectList>
 				<Grid container direction="row" justify="space-evenly" alignItems="center">
 					<Button variant="contained" color="primary" startIcon={<AddCircle />} onClick={props.newProject}>
 						New
