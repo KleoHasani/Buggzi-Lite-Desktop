@@ -13,6 +13,8 @@ const ALLOWED_CHANNELS = [
 	"project:removed",
 	"project:open",
 	"project:opened",
+	"project:close",
+	"project:closed",
 ];
 
 contextBridge.exposeInMainWorld("electron", {

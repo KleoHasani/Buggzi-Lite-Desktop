@@ -43,7 +43,7 @@ if (app.requestSingleInstanceLock())
 
 						e.reply("project:created", { projects: this._globalStore.items });
 					} catch (err) {
-						error(this._app, err);
+						error(this._app, err.toString());
 					}
 				});
 
@@ -60,12 +60,11 @@ if (app.requestSingleInstanceLock())
 
 						e.reply("project:loaded", { projects: this._globalStore.items });
 					} catch (err) {
-						error(this._app, err);
+						error(this._app, err.toString());
 					}
 				});
 			})
 			.catch((err) => {
-				console.error(err);
 				error(this._app, "Unable to launch application.");
 			});
 
@@ -86,14 +85,26 @@ if (app.requestSingleInstanceLock())
 				// send data to render
 				e.reply("project:opened", { project: _project, tickets: _CWP.items });
 			} catch (err) {
-				error(this._app, err);
+				error(this._app, err.toString());
+			}
+		});
+
+		ipcMain.on("project:close", async (e) => {
+			try {
+				await _CWP.save();
+				_CWP = null;
+				e.reply("project:closed");
+			} catch (err) {
+				error(this._app, err.toString());
 			}
 		});
 
 		app.once("window-all-closed", async () => {
 			await this._globalStore.save();
-			await _CWP.save();
-			_CWP = null;
+			if (_CWP) {
+				await _CWP.save();
+				_CWP = null;
+			}
 			this._globalStore = null;
 			this._app = null;
 			app.quit();

@@ -5,10 +5,10 @@ function TicketListItem(props) {
 		<ListItem
 			button={true}
 			onClick={() => {
-				console.log(props.ticket.title);
+				console.log(props.ticket);
 			}}
 		>
-			<ListItemText primary={props.ticket.title} />
+			<ListItemText primary={props.ticket.name} />
 		</ListItem>
 	);
 }

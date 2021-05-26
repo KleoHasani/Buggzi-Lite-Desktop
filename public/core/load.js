@@ -7,8 +7,6 @@ const _isDev = process.argv.includes("developement");
 
 const _base = app.getAppPath();
 
-console.log(_base);
-
 /**
  * @returns {string}
  */

@@ -133,7 +133,6 @@ class Storage {
 	 */
 	async save() {
 		if (!this._isSaved) {
-			this._storage = this._storage.filter((items) => items.value.body !== "");
 			return new Promise((accept, reject) => {
 				chmod(this._path, READ_WRITE)
 					.then(() => {
