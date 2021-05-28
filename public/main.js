@@ -7,7 +7,7 @@ const { existsSync } = require("fs");
 const { Window } = require("./core/Window");
 const { Storage } = require("./core/Storage");
 
-const { newProject, loadProject, error } = require("./core/helper");
+const { newProject, loadProject, createTicket, error } = require("./core/helper");
 
 if (app.requestSingleInstanceLock())
 	(() => {
@@ -79,9 +79,13 @@ if (app.requestSingleInstanceLock())
 			try {
 				// load project data
 				const _project = this._globalStore.getItem(data.key);
-				// create current working project in memory
-				_CWP = new Storage(_project.value.path);
-				await _CWP.loadR();
+
+				// create current working project in memory if it does not exist, read in-memory data if it does.
+				if (!_CWP || _CWP == null) {
+					_CWP = new Storage(_project.value.path);
+					await _CWP.loadR();
+				}
+
 				// send data to render
 				e.reply("project:opened", { project: _project, tickets: _CWP.items });
 			} catch (err) {
@@ -94,6 +98,16 @@ if (app.requestSingleInstanceLock())
 				await _CWP.save();
 				_CWP = null;
 				e.reply("project:closed");
+			} catch (err) {
+				error(this._app, err.toString());
+			}
+		});
+
+		ipcMain.on("ticket:create", async (e, data) => {
+			try {
+				const _ticket = createTicket(data);
+				_CWP.setItem(_ticket);
+				e.reply("ticket:created");
 			} catch (err) {
 				error(this._app, err.toString());
 			}

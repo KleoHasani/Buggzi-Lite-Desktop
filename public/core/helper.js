@@ -85,6 +85,35 @@ function loadProject(context) {
 }
 
 /**
+ * Create a new ticket
+ * @param {object} data
+ * @param {string} data.name
+ * @param {string} data.type
+ * @param {string} data.priority
+ * @param {string} data.notes
+ * @returns {object}
+ */
+function createTicket(data) {
+	const { name, type, priority, notes } = data;
+
+	if (!name) throw "Name field is empty.";
+	if (!type) throw "Type field is empty.";
+	if (!priority) throw "Priority field is empty.";
+
+	return {
+		key: uid(),
+		value: {
+			name,
+			type,
+			priority,
+			notes,
+		},
+	};
+
+	return true;
+}
+
+/**
  * @param {BrowserWindow} context
  * @param {string} message
  */
@@ -93,4 +122,4 @@ function error(context, message) {
 	return;
 }
 
-module.exports = { newProject, loadProject, error };
+module.exports = { newProject, loadProject, createTicket, error };

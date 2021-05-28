@@ -16,9 +16,9 @@ function Dashboard() {
 		value: { name: null, path: null, exists: null },
 	});
 
-	const [tickets, setTickets] = useState([{ name: null, type: null, priority: null, notes: null }]);
-	const [inProgress, setInProgress] = useState([{ name: null, type: null, priority: null, notes: null }]);
-	const [completed, setCompleted] = useState([{ name: null, type: null, priority: null, notes: null }]);
+	const [tickets, setTickets] = useState([]);
+	const [inProgress, setInProgress] = useState([]);
+	const [completed, setCompleted] = useState([]);
 
 	/**
 	 * Separate tickets by type to prepare for rendering.
@@ -33,8 +33,8 @@ function Dashboard() {
 		const _inProgress = [];
 		const _completed = [];
 
-		tickets.map((ticket) => {
-			switch (ticket.type) {
+		tickets.forEach((ticket) => {
+			switch (ticket.value.type) {
 				case "ticket":
 					_tickets.push(ticket);
 					break;

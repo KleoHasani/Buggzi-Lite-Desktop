@@ -8,7 +8,7 @@ function TicketListItem(props) {
 				console.log(props.ticket);
 			}}
 		>
-			<ListItemText primary={props.ticket.name} />
+			<ListItemText primary={props.ticket.value.name} />
 		</ListItem>
 	);
 }
