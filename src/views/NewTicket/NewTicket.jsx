@@ -11,10 +11,11 @@ function NewTicket(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		const { name, type, priority, notes } = e.target;
+		const { name, status, type, priority, notes } = e.target;
 
 		window.electron.ipcSend("ticket:create", {
 			name: name.value,
+			status: status.value,
 			type: type.value,
 			priority: priority.value,
 			notes: notes.value,
@@ -31,10 +32,10 @@ function NewTicket(props) {
 				<Grid container direction="column" style={{ minWidth: "400px" }}>
 					<TextField id="name" label="Name" inputProps={{ maxLength: "50em" }} />
 					<TextField
-						id="type"
+						id="status"
 						select
-						label="Type"
-						helperText="Select ticket type."
+						label="Status"
+						helperText="Select ticket status."
 						SelectProps={{
 							native: true,
 						}}
@@ -50,10 +51,26 @@ function NewTicket(props) {
 						</option>
 					</TextField>
 					<TextField
+						id="type"
+						select
+						label="Type"
+						helperText="Select ticket type."
+						SelectProps={{
+							native: true,
+						}}
+					>
+						<option key="todo" value="todo">
+							To-Do
+						</option>
+						<option key="bug" value="bug">
+							Bug
+						</option>
+					</TextField>
+					<TextField
 						id="priority"
 						select
 						label="Priority"
-						helperText="Select ticket type."
+						helperText="Select ticket priority."
 						SelectProps={{
 							native: true,
 						}}

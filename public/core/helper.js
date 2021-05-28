@@ -94,23 +94,20 @@ function loadProject(context) {
  * @returns {object}
  */
 function createTicket(data) {
-	const { name, type, priority, notes } = data;
+	const { name, status, type, priority, notes } = data;
 
 	if (!name) throw "Name field is empty.";
-	if (!type) throw "Type field is empty.";
-	if (!priority) throw "Priority field is empty.";
 
 	return {
 		key: uid(),
 		value: {
 			name,
+			status,
 			type,
 			priority,
 			notes,
 		},
 	};
-
-	return true;
 }
 
 /**

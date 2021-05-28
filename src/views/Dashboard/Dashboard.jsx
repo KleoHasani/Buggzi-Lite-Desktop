@@ -34,7 +34,7 @@ function Dashboard() {
 		const _completed = [];
 
 		tickets.forEach((ticket) => {
-			switch (ticket.value.type) {
+			switch (ticket.value.status) {
 				case "ticket":
 					_tickets.push(ticket);
 					break;
@@ -71,7 +71,7 @@ function Dashboard() {
 		});
 	};
 
-	const newTicket = () => {
+	const createTicket = () => {
 		history.push("/ticket/new");
 	};
 
@@ -86,8 +86,8 @@ function Dashboard() {
 						Dashboard
 					</Typography>
 					<p>{project.value.path}</p>
-					<Button color="inherit" variant="outlined" onClick={newTicket}>
-						New Ticket
+					<Button color="inherit" variant="outlined" onClick={createTicket}>
+						Create Ticket
 					</Button>
 				</Grid>
 			</AppBar>
