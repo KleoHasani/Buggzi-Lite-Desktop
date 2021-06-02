@@ -33,6 +33,8 @@ class Window extends BrowserWindow {
 
 		this.loadURL(view);
 
+		this.setMenu(null);
+
 		this.once("ready-to-show", () => {
 			this.show();
 			this.focus();
