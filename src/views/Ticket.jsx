@@ -28,9 +28,9 @@ function Ticket() {
 
 	// Field state
 	const [name, setName] = useState("");
-	const [status, setStatus] = useState("");
-	const [type, setType] = useState("");
-	const [priority, setPriority] = useState("");
+	const [status, setStatus] = useState(statusOptions[0].value);
+	const [type, setType] = useState(typeOptions[0].value);
+	const [priority, setPriority] = useState(priorityOptions[0].value);
 	const [notes, setNotes] = useState("");
 
 	useEffect(() => {

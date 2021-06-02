@@ -22,10 +22,19 @@ Only one user/project manager should be allowed to perform crud operations on th
 <div style="text-align: center;">
 <p>Main Window</p>
 <img src="./UI/main_window.png"></img>
+<img src="../../screenshots/FedoraScreen1.png"></img>
+<img src="../../screenshots/UbuntuScreen1.png"></img>
 <p>Dashboard Window</p>
 <img src="./UI/dashboard_window.png"></img>
+<img src="../../screenshots/FedoraScreen2.png"></img>
+<img src="../../screenshots/UbuntuScreen2.png"></img>
 <p>New Ticket View</p>
 <img src="./UI/newticket_view.png"></img>
+<img src="../../screenshots/FedoraScreen3.png"></img>
+<img src="../../screenshots/UbuntuScreen3.png"></img>
 <p>Update Ticket View</p>
 <img src="./UI/updateticket_view.png"></img>
+<img src="../../screenshots/FedoraScreen4.png"></img>
+<img src="../../screenshots/UbuntuScreen4.png"></img>
+
 </div>

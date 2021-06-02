@@ -18,7 +18,7 @@ nsis:
   shortcutName: "Buggzi"
 
 linux:
-  target: [AppImage]
+  target: [AppImage, deb]
   executableName: "Buggzi"
   icon: "icons/icon.icns"
   maintainer: Kleo Hasani
