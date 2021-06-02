@@ -56,3 +56,34 @@ body {
 	border-radius: 1em;
 	margin-top: 1em;
 }
+
+.priority {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.list-item-text {
+	width: 100%;
+}
+
+small {
+	font-size: 0.7em;
+}
+
+@media screen and (max-width: 1000px) {
+	.list-item-text {
+		width: 100%;
+		max-width: 85px;
+		overflow: hidden !important;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	.dashboard-body {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1em;
+	}
+}

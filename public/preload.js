@@ -17,6 +17,12 @@ const ALLOWED_CHANNELS = [
 	"project:closed",
 	"ticket:create",
 	"ticket:created",
+	"ticket:view",
+	"ticket:data",
+	"ticket:update",
+	"ticket:updated",
+	"ticket:delete",
+	"ticket:deleted",
 ];
 
 contextBridge.exposeInMainWorld("electron", {

@@ -17,7 +17,8 @@ if (app.requestSingleInstanceLock())
 		const _globalStorePath = resolve(app.getPath("userData"), "store.json");
 		this._globalStore = new Storage(_globalStorePath);
 
-		app.whenReady()
+		app
+			.whenReady()
 			.then(async () => {
 				await this._globalStore.load();
 				this._app = new Window();
@@ -111,6 +112,20 @@ if (app.requestSingleInstanceLock())
 			} catch (err) {
 				error(this._app, err.toString());
 			}
+		});
+
+		ipcMain.on("ticket:view", (e, data) => {
+			e.reply("ticket:data", { ticket: _CWP.getItem(data.key) });
+		});
+
+		ipcMain.on("ticket:update", (e, data) => {
+			_CWP.setItem(data.ticket);
+			e.reply("ticket:updated");
+		});
+
+		ipcMain.on("ticket:delete", (e, data) => {
+			_CWP.removeItem(data.key);
+			e.reply("ticket:deleted");
 		});
 
 		app.once("window-all-closed", async () => {

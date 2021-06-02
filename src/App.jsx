@@ -6,7 +6,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import { Main } from "./views/Main/Main";
 import { Dashboard } from "./views/Dashboard/Dashboard";
-import { NewTicket } from "./views/NewTicket/NewTicket";
+import { Ticket } from "./views/Ticket/Ticket";
 
 function App() {
 	const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
@@ -60,21 +60,16 @@ function App() {
 			<CssBaseline />
 			<Router>
 				<Route path="/" exact>
-					<Main
-						projects={projects}
-						newProject={newProject}
-						loadProject={loadProject}
-						removeProject={removeProject}
-					/>
+					<Main projects={projects} newProject={newProject} loadProject={loadProject} removeProject={removeProject} />
 				</Route>
 				<Route path="/dashboard/:projectKey" exact>
 					<Dashboard />
 				</Route>
 				<Route path="/ticket/new" exact>
-					<NewTicket />
+					<Ticket />
 				</Route>
 				<Route path="/ticket/view/:ticketKey" exact>
-					<p>Hello</p>
+					<Ticket />
 				</Route>
 			</Router>
 		</ThemeProvider>
