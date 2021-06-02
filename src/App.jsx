@@ -4,9 +4,9 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import { Main } from "./views/Main/Main";
-import { Dashboard } from "./views/Dashboard/Dashboard";
-import { Ticket } from "./views/Ticket/Ticket";
+import { Main } from "./views/Main";
+import { Dashboard } from "./views/Dashboard";
+import { Ticket } from "./views/Ticket";
 
 function App() {
 	const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");

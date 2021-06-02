@@ -8,7 +8,7 @@ function TicketList(props) {
 			<Typography variant="h6" align="center" color="secondary">
 				{props.title}
 			</Typography>
-			<div id="ticket-list">
+			<div id="ticket-list" data-testid="ticket-list">
 				{props.tickets.map((ticket, index) => (
 					<TicketListItem key={index} ticket={ticket} />
 				))}

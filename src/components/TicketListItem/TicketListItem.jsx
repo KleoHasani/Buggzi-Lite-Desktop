@@ -21,7 +21,7 @@ function TicketListItem(props) {
 	};
 
 	return (
-		<ListItem button={true} onClick={viewTicket}>
+		<ListItem button={true} onClick={viewTicket} data-testid="ticket-list-item">
 			<ListItemAvatar>
 				<div className="priority">
 					<FlagOutlined color={setFlagColor()} />

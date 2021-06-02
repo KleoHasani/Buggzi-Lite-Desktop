@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import { Grid, TextField, Button, IconButton } from "@material-ui/core";
+import { Grid, TextField, Button } from "@material-ui/core";
 import { DeleteOutline } from "@material-ui/icons";
 
-import { SubmitButton } from "../../components/SubmitButton/SubmitButton";
+import { SubmitButton } from "../components/SubmitButton/SubmitButton";
 
 const statusOptions = [
 	{ name: "Ticket", value: "ticket" },
@@ -22,7 +22,7 @@ const priorityOptions = [
 	{ name: "High", value: "high" },
 ];
 
-function Ticket(props) {
+function Ticket() {
 	const history = useHistory();
 	const { ticketKey } = useParams();
 

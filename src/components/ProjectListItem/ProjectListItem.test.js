@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { ProjectListItem } from "./ProjectListItem";
 
-test("Should render enabled listitem on screen.", () => {
+test("Should render enabled list item on screen.", () => {
 	render(<ProjectListItem project={{ key: "000", value: { name: "Item", path: "/path", exists: true } }} />);
 	const listitem = screen.getByRole("listitem");
 	expect(listitem).toBeInTheDocument();
@@ -11,7 +11,7 @@ test("Should render enabled listitem on screen.", () => {
 	expect(btnDelete).toBeInTheDocument();
 });
 
-test("Should render disabled listitem on screen.", () => {
+test("Should render disabled list item on screen.", () => {
 	render(<ProjectListItem project={{ key: "000", value: { name: "Item", path: "/path", exists: false } }} />);
 	const listitem = screen.getByRole("listitem");
 	expect(listitem).toBeInTheDocument();

@@ -3,7 +3,7 @@ import { ProjectList } from "./ProjectList";
 
 test("Should render list on screen.", () => {
 	render(<ProjectList projects={[]} />);
-	const list = screen.getByRole("list");
+	const list = screen.getByTestId("project-list");
 	expect(list).toBeInTheDocument();
 	expect(list.children.length).toEqual(0);
 });

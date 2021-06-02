@@ -90,10 +90,10 @@ Debian:
     npm run test:e2e
     ```
 
-#### Integration
+#### UI
 
 ```npm
-npm run test:integration
+npm run test:ui
 ```
 
 #### Unit

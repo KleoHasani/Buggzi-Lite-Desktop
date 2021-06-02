@@ -1,6 +1,6 @@
 import { Container, Typography, Button, Grid } from "@material-ui/core";
 import { AddCircle, Folder } from "@material-ui/icons";
-import { ProjectList } from "../../components/ProjectList/ProjectList";
+import { ProjectList } from "../components/ProjectList/ProjectList";
 
 function Main(props) {
 	return (

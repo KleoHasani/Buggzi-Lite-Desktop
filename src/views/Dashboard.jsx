@@ -4,7 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { AppBar, Button, Typography, IconButton, Grid } from "@material-ui/core";
 import { ArrowBack } from "@material-ui/icons";
 
-import { TicketList } from "../../components/TicketList/TicketList";
+import { TicketList } from "../components/TicketList/TicketList";
 
 function Dashboard() {
 	const history = useHistory();
@@ -79,13 +79,13 @@ function Dashboard() {
 		<Grid container direction="column" justify="center" alignItems="center">
 			<AppBar position="relative" style={{ padding: "0.5em 1em" }}>
 				<Grid container direction="row" justify="space-between" alignItems="center">
-					<IconButton onClick={closeProject}>
+					<IconButton onClick={closeProject} data-testid="back-button">
 						<ArrowBack />
 					</IconButton>
 					<Typography variant="h6" align="left">
 						Dashboard
 					</Typography>
-					<p>{project.value.path}</p>
+					<p data-testid="project-path">{project.value.path}</p>
 					<Button color="inherit" variant="outlined" onClick={createTicket}>
 						Create Ticket
 					</Button>

@@ -16,7 +16,7 @@
 		"start:electron": "electron --trace-warnings public/main.js developement",
 		"build:electron": "electron-builder -c electron-builder.yml",
 		"test:e2e": "mocha e2e",
-		"test:integration": "react-scripts test",
+		"test:ui": "react-scripts test",
 		"test:unit": "mocha test",
 		"build": "npm run build:react && npm run build:electron",
 		"start": "concurrently \"npm run start:react\" \"wait-on tcp:3000 && npm run start:electron\"",
