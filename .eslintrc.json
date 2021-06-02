@@ -1,3 +1,4 @@
+// lint settings
 {
 	"extends": ["react-app", "react-app/jest"]
 }

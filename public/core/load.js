@@ -3,6 +3,8 @@
 const { app } = require("electron");
 const { resolve } = require("path");
 
+const _isDev = process.argv.includes("developement");
+
 const _base = app.getAppPath();
 
 /**
@@ -21,6 +23,7 @@ function icon() {
 	return resolve(_base, "icons", `icon.${_ext}`);
 }
 
-const view = resolve(_base, "build", "index.html");
+const view = _isDev ? "http://localhost:3000" : `file://${resolve(_base, "build", "index.html")}`;
+const preload = _isDev ? resolve(_base, "preload.js") : resolve(_base, "build", "preload.js");
 
-module.exports = { icon, view };
+module.exports = { icon, view, preload };

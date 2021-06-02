@@ -24,12 +24,12 @@ git clone https://github.com/KleoHasani/Buggzi.git
 
 Create Files:
 
--   Create ".env" file in project root with the following configuration.
+- Create ".env" file in project root with the following configuration.
 
 ```dotenv
+BROWSER=none
 INLINE_RUNTIME_CHUNK=false
 IMAGE_INLINE_SIZE_LIMIT=0
-BROWSER=none
 ```
 
 Install dependencies:
@@ -46,17 +46,17 @@ npm start
 
 ### Required
 
--   Electron v12.0.7
+- Electron v12.0.7
 
--   Electron Builder v22.10.5
+- Electron Builder v22.10.5
 
--   Node v15.14.0
+- Node v15.14.0
 
--   NPM v7.7.6
+- NPM v7.7.6
 
 ### Build With
 
--   Electron Builder v22.10.5
+- Electron Builder v22.10.5
 
 Build:
 
@@ -66,13 +66,13 @@ npm run build
 
 Windows:
 
--   dist/_installer_.exe
+- dist/_installer_.exe
 
 Debian:
 
--   dist/_installer_.deb
+- dist/_installer_.deb
 
--   dist/_installer_.AppImage
+- dist/_installer_.AppImage
 
 ### Testing
 
@@ -90,10 +90,10 @@ Debian:
     npm run test:e2e
     ```
 
-#### Integration
+#### UI
 
 ```npm
-npm run test:integration
+npm run test:ui
 ```
 
 #### Unit
@@ -114,8 +114,8 @@ Kleo Hasani
 
 Support for:
 
--   [] Windows 10
+- [] Windows 10
 
--   [] Debian 10
+- [] Debian 10
 
--   [] AppImage
+- [] AppImage

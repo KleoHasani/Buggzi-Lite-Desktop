@@ -1,7 +1,9 @@
 import { StrictMode } from "react";
 import { render } from "react-dom";
 
-import { App } from "./views/Main/App";
+import "./style.css";
+
+import { App } from "./App";
 
 render(
 	<StrictMode>
