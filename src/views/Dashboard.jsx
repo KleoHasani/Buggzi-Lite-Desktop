@@ -66,9 +66,7 @@ function Dashboard() {
 
 	const closeProject = () => {
 		window.electron.ipcSend("project:close");
-		window.electron.ipcOnce("project:closed", () => {
-			history.goBack();
-		});
+		history.goBack();
 	};
 
 	const createTicket = () => {

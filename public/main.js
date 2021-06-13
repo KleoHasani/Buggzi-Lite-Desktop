@@ -108,7 +108,6 @@ if (app.requestSingleInstanceLock())
 			try {
 				const _ticket = createTicket(data);
 				_CWP.setItem(_ticket);
-				e.reply("ticket:created");
 			} catch (err) {
 				error(this._app, err.toString());
 			}
@@ -119,13 +118,23 @@ if (app.requestSingleInstanceLock())
 		});
 
 		ipcMain.on("ticket:update", (e, data) => {
-			_CWP.setItem(data.ticket);
-			e.reply("ticket:updated");
+			const { key, name, status, type, priority, notes } = data;
+			const _ticket = {
+				key,
+				value: {
+					name,
+					status,
+					type,
+					priority,
+					notes,
+				},
+			};
+			this._globalStore.setItem;
+			_CWP.setItem(_ticket);
 		});
 
 		ipcMain.on("ticket:delete", (e, data) => {
 			_CWP.removeItem(data.key);
-			e.reply("ticket:deleted");
 		});
 
 		app.once("window-all-closed", async () => {

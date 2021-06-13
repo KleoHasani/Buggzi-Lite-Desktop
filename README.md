@@ -2,7 +2,7 @@
 	<img src="./docs/screenshots/logo.png">
 </p>
 
-# Buggzi
+# Buggzi [ALPHA VERSION]
 
 A cross platform bug tracking application for small teams and individual developers. Stay on track with Buggzi on any system.
 
@@ -104,7 +104,7 @@ npm run test:unit
 
 ## Version
 
-v0.0.1
+v0.0.2
 
 ## Authors
 

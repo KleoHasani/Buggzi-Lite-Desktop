@@ -6,7 +6,7 @@ function TicketListItem(props) {
 	const history = useHistory();
 
 	const setFlagColor = () => {
-		switch (props.ticket.value.priority) {
+		switch (props.ticket.value.priority.value) {
 			case "high":
 				return "error";
 			case "medium":
@@ -25,11 +25,11 @@ function TicketListItem(props) {
 			<ListItemAvatar>
 				<div className="priority">
 					<FlagOutlined color={setFlagColor()} />
-					<small>{props.ticket.value.priority}</small>
+					<small>{props.ticket.value.priority.value}</small>
 				</div>
 			</ListItemAvatar>
 			<p className="list-item-text">{props.ticket.value.name}</p>
-			{props.ticket.value.type === "todo" ? (
+			{props.ticket.value.type.value === "todo" ? (
 				<AssignmentLateOutlined style={{ margin: "0em 1em" }} />
 			) : (
 				<BugReportOutlined style={{ margin: "0em 1em" }} />

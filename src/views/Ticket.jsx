@@ -22,15 +22,15 @@ const priorityOptions = [
 	{ name: "High", value: "high" },
 ];
 
-function Ticket() {
+function Ticket(props) {
 	const history = useHistory();
 	const { ticketKey } = useParams();
 
 	// Field state
 	const [name, setName] = useState("");
-	const [status, setStatus] = useState("");
-	const [type, setType] = useState("");
-	const [priority, setPriority] = useState("");
+	const [status, setStatus] = useState(statusOptions[0].value);
+	const [type, setType] = useState(typeOptions[0].value);
+	const [priority, setPriority] = useState(priorityOptions[0].value);
 	const [notes, setNotes] = useState("");
 
 	useEffect(() => {
@@ -75,39 +75,20 @@ function Ticket() {
 			priority,
 			notes,
 		});
-
-		window.electron.ipcOnce("ticket:created", () => {
-			history.goBack();
-		});
+		history.goBack();
 	};
 
 	/**
 	 * Handle Update
 	 */
 	const handleUpdate = () => {
-		const _ticket = {
-			key: ticketKey,
-			value: {
-				name,
-				status,
-				type,
-				priority,
-				notes,
-			},
-		};
-		window.electron.ipcSend("ticket:update", { ticket: _ticket });
-
-		window.electron.ipcOnce("ticket:updated", () => {
-			history.goBack();
-		});
+		window.electron.ipcSend("ticket:update", { key: ticketKey, name, status, type, priority, notes });
+		history.goBack();
 	};
 
 	const handleDelete = () => {
 		window.electron.ipcSend("ticket:delete", { key: ticketKey });
-
-		window.electron.ipcOnce("ticket:deleted", () => {
-			history.goBack();
-		});
+		history.goBack();
 	};
 
 	return (
@@ -189,13 +170,23 @@ function Ticket() {
 				<Grid container direction="row" justify="space-evenly" style={{ marginTop: "2em" }}>
 					{ticketKey ? (
 						<div>
-							<SubmitButton name="Update" handleClick={handleUpdate} />
+							<Button
+								type="submit"
+								color="primary"
+								variant="contained"
+								style={{ minWidth: "100px" }}
+								onClick={handleUpdate}
+							>
+								Update
+							</Button>
 							<Button color="secondary" variant="outlined" style={{ margin: "0em 1em" }} onClick={handleDelete}>
 								<DeleteOutline />
 							</Button>
 						</div>
 					) : (
-						<SubmitButton name="Add" handleClick={handleAdd} />
+						<Button type="submit" color="primary" variant="contained" style={{ minWidth: "100px" }} onClick={handleAdd}>
+							Add
+						</Button>
 					)}
 					<Button variant="outlined" style={{ minWidth: "100px" }} onClick={handleCancel}>
 						Cancel
