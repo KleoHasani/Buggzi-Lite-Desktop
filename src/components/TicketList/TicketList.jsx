@@ -10,7 +10,7 @@ function TicketList(props) {
 			</Typography>
 			<div id="ticket-list" data-testid="ticket-list">
 				{props.tickets.map((ticket, index) => (
-					<TicketListItem key={index} ticket={ticket} projectID={props.projectID} />
+					<TicketListItem key={index} ticket={ticket} projectKey={props.projectKey} />
 				))}
 			</div>
 		</div>

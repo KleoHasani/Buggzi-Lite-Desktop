@@ -17,7 +17,7 @@ function TicketListItem(props) {
 	};
 
 	const viewTicket = () => {
-		history.push(`/ticket/view/${props.ticket.key}`);
+		history.push(`/dashboard/${props.projectKey}/ticket/view/${props.ticket.key}`, null);
 	};
 
 	return (

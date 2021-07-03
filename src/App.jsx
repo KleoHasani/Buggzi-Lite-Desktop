@@ -65,10 +65,10 @@ function App() {
 				<Route path="/dashboard/:projectKey" exact>
 					<Dashboard />
 				</Route>
-				<Route path="/ticket/new" exact>
+				<Route path="/dashboard/:projectKey/ticket/new" exact>
 					<Ticket />
 				</Route>
-				<Route path="/ticket/view/:ticketKey" exact>
+				<Route path="/dashboard/:projectKey/ticket/view/:ticketKey" exact>
 					<Ticket />
 				</Route>
 			</Router>

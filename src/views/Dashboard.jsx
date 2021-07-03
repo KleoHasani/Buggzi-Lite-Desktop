@@ -55,6 +55,7 @@ function Dashboard() {
 	// load data from main process when project open
 	useEffect(() => {
 		const _load = () => {
+			console.log("Here")
 			window.electron.ipcSend("project:open", { key: projectKey });
 			window.electron.ipcOnce("project:opened", (e, data) => {
 				setProject(data.project);
@@ -66,11 +67,11 @@ function Dashboard() {
 
 	const closeProject = () => {
 		window.electron.ipcSend("project:close");
-		history.goBack();
+		history.replace("/", null);
 	};
 
 	const createTicket = () => {
-		history.push("/ticket/new");
+		history.push(`/dashboard/${projectKey}/ticket/new`, null);
 	};
 
 	return (
@@ -90,9 +91,9 @@ function Dashboard() {
 				</Grid>
 			</AppBar>
 			<div className="dashboard-body">
-				<TicketList title="Tickets" tickets={tickets} />
-				<TicketList title="In-Progress" tickets={inProgress} />
-				<TicketList title="Completed" tickets={completed} />
+				<TicketList title="Tickets" tickets={tickets} projectKey={projectKey} />
+				<TicketList title="In-Progress" tickets={inProgress} projectKey={projectKey} />
+				<TicketList title="Completed" tickets={completed} projectKey={projectKey} />
 			</div>
 		</Grid>
 	);

@@ -3,8 +3,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { Grid, TextField, Button } from "@material-ui/core";
 import { DeleteOutline } from "@material-ui/icons";
 
-import { SubmitButton } from "../components/SubmitButton/SubmitButton";
-
 const statusOptions = [
 	{ name: "Ticket", value: "ticket" },
 	{ name: "In-Progress", value: "inprogress" },
@@ -22,9 +20,9 @@ const priorityOptions = [
 	{ name: "High", value: "high" },
 ];
 
-function Ticket(props) {
+function Ticket() {
 	const history = useHistory();
-	const { ticketKey } = useParams();
+	const { projectKey, ticketKey } = useParams();
 
 	// Field state
 	const [name, setName] = useState("");
@@ -52,7 +50,7 @@ function Ticket(props) {
 	 * Handle Cancle button click
 	 */
 	const handleCancel = () => {
-		history.goBack();
+		history.replace(`/dashboard/${projectKey}`, null);
 	};
 
 	/**
@@ -75,7 +73,7 @@ function Ticket(props) {
 			priority,
 			notes,
 		});
-		history.goBack();
+		history.replace(`/dashboard/${projectKey}`, null);
 	};
 
 	/**
@@ -83,12 +81,12 @@ function Ticket(props) {
 	 */
 	const handleUpdate = () => {
 		window.electron.ipcSend("ticket:update", { key: ticketKey, name, status, type, priority, notes });
-		history.goBack();
+		history.replace(`/dashboard/${projectKey}`, null);
 	};
 
 	const handleDelete = () => {
 		window.electron.ipcSend("ticket:delete", { key: ticketKey });
-		history.goBack();
+		history.replace(`/dashboard/${projectKey}`, null);
 	};
 
 	return (
