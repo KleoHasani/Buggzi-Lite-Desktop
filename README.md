@@ -50,9 +50,9 @@ npm start
 
 - Electron Builder v22.10.5
 
-- Node v15.14.0
+- Node v16.3.0
 
-- NPM v7.7.6
+- NPM v7.15.1
 
 ### Build With
 
