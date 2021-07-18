@@ -9,7 +9,9 @@ A cross platform bug tracking application for small teams and individual develop
 ---
 
 <p align="center">
-	<!--<img src="./docs/screenshots/">-->
+	<img src="./docs/screenshots/Screenshot1.png">
+	<img src="./docs/screenshots/Screenshot2.png">
+	<img src="./docs/screenshots/Screenshot3.png">
 </p>
 
 ---
