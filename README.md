@@ -22,16 +22,6 @@ Clone:
 git clone https://github.com/KleoHasani/Buggzi.git
 ```
 
-Create Files:
-
-- Create ".env" file in project root with the following configuration.
-
-```dotenv
-BROWSER=none
-INLINE_RUNTIME_CHUNK=false
-IMAGE_INLINE_SIZE_LIMIT=0
-```
-
 Install dependencies:
 
 ```npm
@@ -116,6 +106,6 @@ Support for:
 
 - [] Windows 10
 
-- [] Debian 10
+- [x] Debian 10
 
-- [] AppImage
+- [x] AppImage
