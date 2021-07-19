@@ -106,7 +106,7 @@ Kleo Hasani
 
 Support for:
 
-- [] Windows 10
+- [x] Windows 10
 
 - [x] Debian 10
 
