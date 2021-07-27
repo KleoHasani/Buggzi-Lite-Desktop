@@ -17,6 +17,11 @@ nsis:
   createStartMenuShortcut: true
   shortcutName: "Buggzi"
 
+mac:
+  category: "public.app-category.utilities"
+  target: "dmg"
+  icon: "icons/icon.icns"
+
 linux:
   target: [AppImage, deb]
   executableName: "Buggzi"
