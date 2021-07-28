@@ -11,7 +11,7 @@ class Window extends BrowserWindow {
 			height: 600,
 			minWidth: 800,
 			minHeight: 600,
-			fullscreenable: false,
+			fullscreenable: true,
 			transparent: false,
 			frame: true,
 			show: false,

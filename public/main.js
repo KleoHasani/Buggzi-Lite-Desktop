@@ -1,6 +1,6 @@
 "use strict";
 
-const { app, ipcMain } = require("electron");
+const { app, ipcMain, Menu } = require("electron");
 const { resolve } = require("path");
 const { existsSync } = require("fs");
 
@@ -22,6 +22,9 @@ if (app.requestSingleInstanceLock())
 			.then(async () => {
 				await this._globalStore.load();
 				this._app = new Window();
+
+				Menu.setApplicationMenu(null)
+				app.dock.setMenu(null)
 			})
 			.then(() => {
 				// send data to render process when render is loaded
