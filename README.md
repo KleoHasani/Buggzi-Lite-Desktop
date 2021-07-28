@@ -96,7 +96,7 @@ npm run test:unit
 
 ## Version
 
-v0.0.2
+v0.0.3
 
 ## Authors
 

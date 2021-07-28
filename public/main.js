@@ -24,7 +24,6 @@ if (app.requestSingleInstanceLock())
 				this._app = new Window();
 
 				Menu.setApplicationMenu(null)
-				app.dock.setMenu(null)
 			})
 			.then(() => {
 				// send data to render process when render is loaded
