@@ -1,6 +1,6 @@
 <div style="text-align: center;">
 <h2>Software Design Document</h2>
-<h3>Buggzi</h3>
+<h3>Buggzi-Desktop</h3>
 <p>Authors: Kleo Hasani</p>
 <i>SDD v1.0</i>
 </div>
