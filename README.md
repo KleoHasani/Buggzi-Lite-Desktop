@@ -2,7 +2,7 @@
 	<img src="./docs/screenshots/logo.png">
 </p>
 
-# Buggzi [ALPHA VERSION]
+# Buggzi-Desktop [ALPHA VERSION]
 
 A cross platform bug tracking application for small teams and individual developers. Stay on track with Buggzi on any system.
 
@@ -21,7 +21,7 @@ A cross platform bug tracking application for small teams and individual develop
 Clone:
 
 ```git
-git clone https://github.com/KleoHasani/Buggzi.git
+git clone https://github.com/KleoHasani/Buggzi-Desktop.git
 ```
 
 Install dependencies:
