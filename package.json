@@ -1,5 +1,5 @@
 {
-	"name": "buggzi",
+	"name": "buggzi-desktop",
 	"description": "A cross platform bug tracking application for small teams and individual developers. Stay on track with Buggzi on any system.",
 	"version": "0.0.3",
 	"private": true,
