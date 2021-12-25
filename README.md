@@ -2,7 +2,7 @@
 	<img src="./docs/screenshots/logo.png">
 </p>
 
-# Buggzi-Desktop [ALPHA VERSION]
+# Buggzi-Lite-Desktop [ALPHA VERSION]
 
 A cross platform bug tracking application for small teams and individual developers. Stay on track with Buggzi on any system.
 
