@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
@@ -55,7 +56,7 @@ function Dashboard() {
 	// load data from main process when project open
 	useEffect(() => {
 		const _load = () => {
-			console.log("Here")
+			console.log("Here");
 			window.electron.ipcSend("project:open", { key: projectKey });
 			window.electron.ipcOnce("project:opened", (e, data) => {
 				setProject(data.project);

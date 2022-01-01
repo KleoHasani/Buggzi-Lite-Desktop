@@ -1,3 +1,4 @@
+import React from "react";
 import { ListItem, ListItemAvatar } from "@material-ui/core";
 import { FlagOutlined, BugReportOutlined, AssignmentLateOutlined } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
@@ -32,7 +33,7 @@ function TicketListItem(props) {
 			{props.ticket.value.type === "todo" ? (
 				<AssignmentLateOutlined style={{ margin: "0em 1em" }} />
 			) : (
-				<BugReportOutlined style={{ margin: "0em 1em" }} color="error"/>
+				<BugReportOutlined style={{ margin: "0em 1em" }} color="error" />
 			)}
 		</ListItem>
 	);
